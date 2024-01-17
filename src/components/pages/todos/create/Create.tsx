@@ -63,7 +63,6 @@ export function Create(){
     async function handleCreateTodo(event: FormEvent<HTMLFormElement>){
         try {
             event.preventDefault();
-        
             // console.log(process.env.API_URL)
 
             const responseCreateTodo = await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/todos`,{
