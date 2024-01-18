@@ -4,6 +4,7 @@ import { Header } from '../../../header/Header';
 import styles from './Reset-Password.module.css';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import verificationImg from '../../../../assets/verification.png'
+import { env } from '../../../../env';
 
 export interface IUser{
     password: string,
@@ -49,7 +50,7 @@ export function ResetPassword() {
            
             // console.log(process.env.API_URL)
 
-            const responseResetPassword = await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/users/reset-password?token=${token}`,{
+            const responseResetPassword = await fetch(`${env.REACT_APP_API_URL}/users/reset-password?token=${token}`,{
                 body: JSON.stringify(
                     {
                         password: resetPassword.password

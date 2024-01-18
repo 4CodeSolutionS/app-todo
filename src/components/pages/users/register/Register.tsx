@@ -5,6 +5,7 @@ import {Header} from '../../../header/Header'
 import styles from './Register.module.css'
 import { Footer } from '../../../footer/Footer'
 import sendEmailImg from '../../../../assets/send-email.png'
+import { env } from '../../../../env';
 
 export interface IUser{
     firstname?: string,
@@ -39,7 +40,7 @@ export function Register(){
             }
             // console.log(process.env.API_URL)
 
-            const responseRegisterUser = await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/users`,{
+            const responseRegisterUser = await fetch(`${env.REACT_APP_API_URL}/users`,{
                 body: JSON.stringify(
                     {
                         name: `${registerUser.firstname} ${registerUser.lastname}`,

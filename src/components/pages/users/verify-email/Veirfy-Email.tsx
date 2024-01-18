@@ -6,6 +6,7 @@ import styles from './Verify-Email.module.css';
 import verificationImg from '../../../../assets/verification.png';
 import { useLocation, useNavigate } from 'react-router';
 import { useState } from 'react';
+import { env } from '../../../../env';
 
 export function VerifyEmail(){
     const [block, setBlock] = useState<boolean>(false)
@@ -35,7 +36,7 @@ export function VerifyEmail(){
                     window.location.href = "/login"
                 }
             }
-            await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/users/verify-email?email=${email}&token=${token}`, {
+            await fetch(`${env.REACT_APP_API_URL}/users/verify-email?email=${email}&token=${token}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
