@@ -50,7 +50,6 @@ export function Register(){
                     'Content-Type': 'application/json'
                 }
             })
-            console.log(responseRegisterUser)
             if(!responseRegisterUser.ok) throw new Error()
 
             setRegisterUser({
