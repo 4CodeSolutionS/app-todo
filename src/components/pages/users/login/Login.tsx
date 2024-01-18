@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Header } from '../../../header/Header'
 import styles from './Login.module.css'
 import { Footer } from '../../../footer/Footer';
-import { env } from '../../../../env';
 
 export interface IUser{
     email: string,
@@ -34,7 +33,7 @@ export function Login(){
     async function handleLoginUser(event: FormEvent<HTMLFormElement>){
         try {
             event.preventDefault();        
-            const responseLoginUser = await fetch(`${env.REACT_APP_API_URL}/users/login`,{
+            const responseLoginUser = await fetch(`${import.meta.env.REACT_APP_API_URL}/users/login`,{
                 body: JSON.stringify(
                     {
                         email: loginUser.email,

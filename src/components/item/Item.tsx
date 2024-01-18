@@ -6,7 +6,6 @@ import hoverCheckFalse from '../../assets/hover-check-false.svg'
 import hoverCheckTrue from '../../assets/hover-check-true.svg'
 import trash from '../../assets/trash.svg'
 import hoverTrash from '../../assets/hover-trash.svg'
-import { env } from '../../env';
 
 interface IPropdItem{
     id: string,
@@ -42,7 +41,7 @@ export function Item({id, completed, description}: IPropdItem){
     //[] criar função para deletar a tarefa
     async function handleDeleteTodo(){
         try {
-            await fetch(`${env.REACT_APP_API_URL}/todos/${id}`,{
+            await fetch(`${import.meta.env.REACT_APP_API_URL}/todos/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,7 +56,7 @@ export function Item({id, completed, description}: IPropdItem){
     //[x] criar função para marcar a tarefa como concluida
     async function handleMarkTodoAsCompleted(){
         try {
-            const responseMarkTodoAsCompleted = await fetch(`${env.REACT_APP_API_URL}/todos/mark-completed/${id}`,{
+            const responseMarkTodoAsCompleted = await fetch(`${import.meta.env.REACT_APP_API_URL}/todos/mark-completed/${id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

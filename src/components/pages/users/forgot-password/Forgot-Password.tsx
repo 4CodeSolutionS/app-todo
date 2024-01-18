@@ -4,7 +4,6 @@ import { Header } from '../../../header/Header'
 import styles from './Forgot-Password.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import sendEmailImg from '../../../../assets/send-email.png'
-import { env } from '../../../../env'
 
 
 interface IEmail{
@@ -23,7 +22,7 @@ export function ForgotPassword(){
     async function handleForgotPassword(event: FormEvent<HTMLFormElement>){
         try {
             event.preventDefault();
-             const responseConfirmEmail = await fetch(`${env.REACT_APP_API_URL}/users/forgot-password`,{
+             const responseConfirmEmail = await fetch(`${import.meta.env.REACT_APP_API_URL}/users/forgot-password`,{
                 body: JSON.stringify(
                     {
                         email: emailField.email,
