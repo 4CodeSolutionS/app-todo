@@ -55,11 +55,6 @@ export function Login(){
                 alert('E-mail ou senha incorretos')
                 return
             }
-            
-            if(data.user.emailActive === false ){
-                alert('Lembrete: Por favor, verifique seu e-mail e confirme seu endereço para ativar sua conta.')
-                return
-            }
 
             //[x] armazenar accessToken, refreshToken e user.id no localStorage
             localStorage.setItem('accessToken', data.accessToken)

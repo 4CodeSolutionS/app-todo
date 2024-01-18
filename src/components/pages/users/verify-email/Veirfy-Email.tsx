@@ -5,11 +5,8 @@ import { Header } from '../../../header/Header';
 import styles from './Verify-Email.module.css';
 import verificationImg from '../../../../assets/verification.png';
 import { useLocation, useNavigate } from 'react-router';
-import { useState } from 'react';
 
 export function VerifyEmail(){
-    const [block, setBlock] = useState<boolean>(false)
-    
     const { search } = useLocation();
 
     const navigate = useNavigate()
@@ -20,21 +17,6 @@ export function VerifyEmail(){
 
     async function verifyEmail(){
        try {
-            const emails = localStorage.getItem('emails');
-            let arrayEmails = [];
-
-            if(!email || !token){
-                setBlock(true)
-                window.location.href = "/login"
-            }
-            // se email existir no storage ou token não existir
-            if(emails){
-                arrayEmails = JSON.parse(emails);
-                if(emails.includes(email) || !token){
-                    setBlock(true)
-                    window.location.href = "/login"
-                }
-            }
             await fetch(`${import.meta.env.VITE_API_URL}/users/verify-email?email=${email}&token=${token}`, {
                 method: 'PATCH',
                 headers: {
@@ -51,10 +33,6 @@ export function VerifyEmail(){
                 })
             }
 
-            arrayEmails.push(email);
-
-            localStorage.setItem('emails', JSON.stringify(arrayEmails));
-           
         redirect().then((result)=>{
             if (result) {
                 navigate("/login")
@@ -68,7 +46,7 @@ export function VerifyEmail(){
     verifyEmail();
 
     return(
-        <div className={block ? styles.none : styles.container}>
+        <div className={styles.container}>
             <Header />
             <div className={styles['verification-content']}>
                 <img src={verificationImg} alt="" />
