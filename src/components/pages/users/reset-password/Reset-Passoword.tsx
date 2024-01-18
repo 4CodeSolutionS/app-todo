@@ -49,7 +49,7 @@ export function ResetPassword() {
            
             // console.log(process.env.API_URL)
 
-            const responseResetPassword = await fetch(`${import.meta.env.REACT_APP_API_URL}/users/reset-password?token=${token}`,{
+            const responseResetPassword = await fetch(`${import.meta.env.VITE_API_URL}/users/reset-password?token=${token}`,{
                 body: JSON.stringify(
                     {
                         password: resetPassword.password

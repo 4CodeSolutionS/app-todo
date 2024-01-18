@@ -33,7 +33,7 @@ export function Login(){
     async function handleLoginUser(event: FormEvent<HTMLFormElement>){
         try {
             event.preventDefault();        
-            const responseLoginUser = await fetch(`${import.meta.env.REACT_APP_API_URL}/users/login`,{
+            const responseLoginUser = await fetch(`${import.meta.env.VITE_API_URL}/users/login`,{
                 body: JSON.stringify(
                     {
                         email: loginUser.email,

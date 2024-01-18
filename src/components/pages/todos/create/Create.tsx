@@ -65,7 +65,7 @@ export function Create(){
             event.preventDefault();
             // console.log(process.env.API_URL)
 
-            const responseCreateTodo = await fetch(`${import.meta.env.REACT_APP_API_URL}/todos`,{
+            const responseCreateTodo = await fetch(`${import.meta.env.VITE_API_URL}/todos`,{
                 body: JSON.stringify(
                     {
                         description: `${descriptionTodo.description}`
@@ -97,7 +97,7 @@ export function Create(){
     }
 
     async function handleLogout(){
-        await fetch(`${import.meta.env.REACT_APP_API_URL}/users/logout`,{
+        await fetch(`${import.meta.env.VITE_API_URL}/users/logout`,{
             body: JSON.stringify(
                 {
                     refreshToken: `${localStorage.getItem('refreshToken')}`
@@ -126,7 +126,7 @@ export function Create(){
         async function loadTodos(){
             const token = await getAccessToken()
            try {
-                const responseListTodo = await fetch(`${import.meta.env.REACT_APP_API_URL}/todos/user`,{
+                const responseListTodo = await fetch(`${import.meta.env.VITE_API_URL}/todos/user`,{
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ export function Create(){
 
         async function loadCountAllTodos(){
             const token = await getAccessToken()
-            const responseCountAllTodo = await fetch(`${import.meta.env.REACT_APP_API_URL}/todos/count-all`,{
+            const responseCountAllTodo = await fetch(`${import.meta.env.VITE_API_URL}/todos/count-all`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export function Create(){
 
         async function loadCountCompletedTodos(){
             const token = await getAccessToken()
-            const responseCountAllTodo = await fetch(`${import.meta.env.REACT_APP_API_URL}/todos/count-ready`,{
+            const responseCountAllTodo = await fetch(`${import.meta.env.VITE_API_URL}/todos/count-ready`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

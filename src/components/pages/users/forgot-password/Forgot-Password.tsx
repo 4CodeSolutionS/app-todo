@@ -22,7 +22,7 @@ export function ForgotPassword(){
     async function handleForgotPassword(event: FormEvent<HTMLFormElement>){
         try {
             event.preventDefault();
-             const responseConfirmEmail = await fetch(`${import.meta.env.REACT_APP_API_URL}/users/forgot-password`,{
+             const responseConfirmEmail = await fetch(`${import.meta.env.VITE_API_URL}/users/forgot-password`,{
                 body: JSON.stringify(
                     {
                         email: emailField.email,

@@ -35,7 +35,7 @@ export function VerifyEmail(){
                     window.location.href = "/login"
                 }
             }
-            await fetch(`${import.meta.env.REACT_APP_API_URL}/users/verify-email?email=${email}&token=${token}`, {
+            await fetch(`${import.meta.env.VITE_API_URL}/users/verify-email?email=${email}&token=${token}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

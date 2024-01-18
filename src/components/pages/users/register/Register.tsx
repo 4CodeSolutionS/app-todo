@@ -37,8 +37,7 @@ export function Register(){
                 alert('As senhas não conferem')
                 return
             }
-            // console.log(process.env.API_URL)
-            const responseRegisterUser = await fetch(`${import.meta.env.REACT_APP_API_URL}/users`,{
+            const responseRegisterUser = await fetch(`${import.meta.env.VITE_API_URL}/users`,{
                 body: JSON.stringify(
                     {
                         name: `${registerUser.firstname} ${registerUser.lastname}`,
