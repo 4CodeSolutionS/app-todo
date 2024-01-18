@@ -38,7 +38,7 @@ export function Register(){
                 return
             }
             // console.log(process.env.API_URL)
-
+            console.log(import.meta.env.REACT_APP_API_URL)
             const responseRegisterUser = await fetch(`${import.meta.env.REACT_APP_API_URL}/users`,{
                 body: JSON.stringify(
                     {
@@ -52,7 +52,7 @@ export function Register(){
                     'Content-Type': 'application/json'
                 }
             })
-
+            console.log(responseRegisterUser)
             if(!responseRegisterUser.ok) throw new Error()
 
             setRegisterUser({
@@ -75,7 +75,8 @@ export function Register(){
             })
 
         } catch (error) {
-            alert('Email já cadastrado')
+            console.log(error)
+
         }
     }
 
