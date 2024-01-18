@@ -1,6 +1,6 @@
 export async function verifyAccessToken() {
     const idUser = localStorage.getItem('idUser');
-    const verifyAccessToken = await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/users/${idUser}`, {
+    const verifyAccessToken = await fetch(`${import.meta.env.VITE_API_URL}/users/${idUser}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ export async function verifyRefreshToken() {
         return false;
     }
 
-    const verifyRefreshToken = await fetch(`https://api-todo.kaiomoreira-dev.com.br/api/users/refresh-token`, {
+    const verifyRefreshToken = await fetch(`${import.meta.env.VITE_API_URL}/users/refresh-token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
